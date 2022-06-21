@@ -1,3 +1,4 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 module.exports = {
   entry: './lib/index.tsx',
@@ -9,12 +10,18 @@ module.exports = {
     filename: '[name].[contenthash].js',
   },
   devServer: {
-    // static: false,
-    open: true,
+    open: false,
     compress: true,
     port: 9000,
   },
   module: {
     rules: [{ test: /\.(tsx?|jsx?)$/, use: 'babel-loader' }],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'UI Library',
+      template: './public/index.html',
+      favicon: './public/favicon.ico',
+    }),
+  ],
 }
