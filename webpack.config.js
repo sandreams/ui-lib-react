@@ -8,7 +8,13 @@ module.exports = {
     libraryTarget: 'umd',
     filename: '[name].[contenthash].js',
   },
+  devServer: {
+    // static: false,
+    open: true,
+    compress: true,
+    port: 9000,
+  },
   module: {
-    // rules: [{ test: /\.(tsx?|jsx?)$/, use: 'babel-loader' }],
+    rules: [{ test: /\.(tsx?|jsx?)$/, use: 'babel-loader' }],
   },
 }
