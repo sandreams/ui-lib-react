@@ -1,9 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Button from '../src/components/Button'
 type Prop = {
   name: string
 }
-const App: React.FC<Prop> = (props) => {
-  return <div>{props.name}</div>
+const App = () => {
+  return (
+    <div>
+      <Button />
+    </div>
+  )
 }
-export default App
+ReactDOM.render(<App />, document.getElementById('app'))
