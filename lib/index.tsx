@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 import ReactDOM from 'react-dom'
 import Button from '../src/components/Button'
-type Prop = {
-  name: string
-}
+// type Prop = {
+//   name: string
+// }
 const App = () => {
   return (
     <div>

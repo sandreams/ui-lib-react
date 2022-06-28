@@ -2,12 +2,14 @@
   "name": "ui-lib-react",
   "version": "1.0.0",
   "main": "index.js",
+  "types": "dist/types/index",
   "repository": "git@github.com:sandreams/ui-lib-react.git",
   "author": "sanDream <fs517010856@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npx webpack-cli serve",
-    "build": "webpack"
+    "start": "webpack serve --config webpack.config.dev.js",
+    "build": "tsc --noEmit && rm -rf dist && webpack --config webpack.config.prod.js",
+    "type": "tsc --noEmit"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
