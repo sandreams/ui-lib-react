@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
-  entry: './lib/index.tsx',
+  entry: './src/index.tsx',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
@@ -12,20 +12,15 @@ module.exports = {
     libraryTarget: 'umd',
     filename: '[name].[contenthash].js',
   },
-  devServer: {
-    open: false,
-    compress: true,
-    port: 9000,
-  },
   module: {
-    rules: [{ test: /\.(tsx?|jsx?)$/, use: 'babel-loader' }],
+    rules: [{ test: /\.(tsx?|jsx?)$/, use: 'babel-loader', exclude: /node_modules/ }],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'UI Library',
       template: './public/index.html',
       favicon: './public/favicon.ico',
     }),
-    new CleanWebpackPlugin(),
   ],
 };

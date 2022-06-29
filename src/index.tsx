@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Button from '../src/components/Button';
+import Button from './components/Button';
 interface Prop {
   name: string;
 }
