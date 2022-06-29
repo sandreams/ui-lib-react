@@ -2,12 +2,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*":["src/*"]
+      "@/*": ["src/*"]
     },
     "module": "esnext",
     "target": "es5",
-    "lib": ["es6", "dom","esnext"],
-    "outDir": "dist",
+    "lib": ["es6", "dom", "esnext"],
+    "outDir": "dist/types",
     "sourceMap": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
@@ -32,6 +32,6 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "*.js",
+    "*.js"
   ]
 }

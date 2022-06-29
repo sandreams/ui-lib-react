@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Button from '@/components/Button';
-import { a } from './dark';
+import Button from '../src/components/Button';
 interface Prop {
   name: string;
 }
