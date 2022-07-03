@@ -1,10 +1,13 @@
 /* eslint-disable no-undef */
-const add = (a: number, b: number) => {
-  return a + b
-}
+import renderer from 'react-test-renderer'
+import { Button } from '../components/Button'
+// const add = (a: number, b: number) => {
+//   return a + b
+// }
 
-describe('add func', () => {
-  it('1+1 =2', () => {
-    expect(add(1, 2)).toBe(3)
+describe('快照测试', () => {
+  it('rendered correctly', () => {
+    const tree = renderer.create(<Button />).toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

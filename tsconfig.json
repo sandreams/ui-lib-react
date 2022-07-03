@@ -20,7 +20,8 @@
     "strictNullChecks": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
   },
   "include": ["src/**/*", "lib/*"],
   "exclude": [
