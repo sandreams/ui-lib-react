@@ -21,7 +21,7 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "include": ["src/**/*", "lib/*"],
   "exclude": [

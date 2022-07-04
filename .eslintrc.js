@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["alloy", "alloy/react", "alloy/typescript"],
+  extends: ['alloy', 'alloy/react', 'alloy/typescript'],
   env: {
     // Your environments (which contains several predefined global variables)
     //
@@ -17,4 +17,12 @@ module.exports = {
   rules: {
     // Customize your rules
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        'no-undef': 'off',
+      },
+    },
+  ],
 };
