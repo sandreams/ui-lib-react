@@ -1,8 +1,20 @@
-import React from 'react';
+import React from 'react'
+import './iconfont'
 interface IconProps {
-  name: string;
+  name: string
+  iconClass?: string
 }
+
 const Icon: React.FC<IconProps> = (props) => {
-  return <span>{props.name}</span>;
-};
-export default Icon;
+  return (
+    <svg className={`fui-icon ${props.iconClass || ''}`}>
+      <use
+        xlinkHref={
+          '#' +
+          (props.name.startsWith('icon-') ? props.name : 'icon-' + props.name)
+        }
+      />
+    </svg>
+  )
+}
+export default Icon

@@ -1,6 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
   entry: './src/index.tsx',
   resolve: {
@@ -29,7 +29,10 @@ module.exports = {
     filename: '[name].[contenthash].js',
   },
   module: {
-    rules: [{ test: /\.(tsx?|jsx?)$/, use: 'babel-loader', exclude: /node_modules/ }],
+    rules: [
+      { test: /\.(tsx?|jsx?)$/, use: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.svg$/, use: 'svg-sprite-loader' },
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -39,4 +42,4 @@ module.exports = {
       favicon: './public/favicon.ico',
     }),
   ],
-};
+}

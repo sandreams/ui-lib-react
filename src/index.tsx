@@ -1,14 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Icon from './icon';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import styled from 'styled-components'
+import Icon from './icon'
+// import {} from ''
 interface Prop {
-  name: string;
+  name: string
 }
+const Wrapper = styled.div`
+  .icon {
+    height: 20px;
+    width: 20px;
+    fill: red;
+  }
+`
 const App: React.FC<Prop> = (props) => {
   return (
-    <div>
-      <Icon name="darklin" />
-    </div>
-  );
-};
-ReactDOM.render(<App name="fan" />, document.getElementById('app'));
+    <Wrapper>
+      <Icon name="tag" iconClass="icon" />
+    </Wrapper>
+  )
+}
+ReactDOM.render(<App name="fan" />, document.getElementById('app'))
