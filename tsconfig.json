@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
-    },
+    // "paths": {
+    //   "@/*": ["src/*"]
+    // },
     "target": "esnext",
     "module": "commonjs",
     "lib": ["es6", "dom", "esnext"],
@@ -11,7 +11,7 @@
     "sourceMap": true,
     "jsx": "react-jsx",
     "moduleResolution": "node",
-    "rootDir": ".",
+    // "rootDir": ".",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -21,7 +21,8 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "typeRoots": ["node_modules/@types", "src/types"]
   },
   "include": ["src/**/*", "lib/*"],
   "exclude": [

@@ -1,15 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Button } from './components/Button'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from 'src/components/Button';
 interface Prop {
-  name: string
+  name: string;
 }
-const App: React.FC<Prop> = props => {
+const App: React.FC<Prop> = (props) => {
   return (
     <div>
       <Button />
       {props.name}
     </div>
-  )
-}
-ReactDOM.render(<App name="fan" />, document.getElementById('app'))
+  );
+};
+ReactDOM.render(<App name="fan" />, document.getElementById('app'));

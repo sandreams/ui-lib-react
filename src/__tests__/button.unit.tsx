@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import renderer from 'react-test-renderer';
-import { Button } from '../components/Button';
+import { Button } from 'src/components/Button';
 // const add = (a: number, b: number) => {
 //   return a + b
 // }

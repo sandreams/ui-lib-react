@@ -4,7 +4,23 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: './src/index.tsx',
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx'],
+    extensions: [
+      '.web.mjs',
+      '.mjs',
+      '.web.js',
+      '.js',
+      '.web.ts',
+      '.ts',
+      '.web.tsx',
+      '.tsx',
+      '.json',
+      '.web.jsx',
+      '.jsx',
+    ],
+    modules: ['node_modules', path.resolve(__dirname, 'node_modules')],
+    alias: {
+      src: path.resolve(__dirname, 'src'),
+    },
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

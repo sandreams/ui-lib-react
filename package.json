@@ -1,7 +1,6 @@
 {
   "name": "ui-lib-react",
   "version": "1.0.0",
-  "main": "index.js",
   "types": "dist/types/index",
   "repository": "git@github.com:sandreams/ui-lib-react.git",
   "author": "sanDream <fs517010856@gmail.com>",
