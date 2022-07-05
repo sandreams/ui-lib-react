@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from 'src/components/Button';
+import Icon from './icon';
 interface Prop {
   name: string;
 }
 const App: React.FC<Prop> = (props) => {
   return (
     <div>
-      <Button />
-      {props.name}
+      <Icon name="darklin" />
     </div>
   );
 };
