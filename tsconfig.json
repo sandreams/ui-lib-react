@@ -22,9 +22,9 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": true,
     "esModuleInterop": true,
-    "typeRoots": ["node_modules/@types", "src/types"]
+    "typeRoots": ["node_modules/@types", "types"]
   },
-  "include": ["src/**/*", "lib/*"],
+  "include": ["src/**/*", "lib/*", "types/**/*"],
   "exclude": [
     "node_modules",
     "build",

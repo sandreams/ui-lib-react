@@ -1,5 +1,5 @@
 import React from 'react'
-import './iconfont'
+import './iconfont.js'
 interface IconProps {
   name: string
   iconClass?: string
