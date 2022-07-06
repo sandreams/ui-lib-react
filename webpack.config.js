@@ -1,6 +1,6 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: './src/index.tsx',
   resolve: {
@@ -32,6 +32,7 @@ module.exports = {
     rules: [
       { test: /\.(tsx?|jsx?)$/, use: 'babel-loader', exclude: /node_modules/ },
       { test: /\.svg$/, use: 'svg-sprite-loader' },
+      { test: /\.s[ac]ss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
     ],
   },
   plugins: [
@@ -42,4 +43,4 @@ module.exports = {
       favicon: './public/favicon.ico',
     }),
   ],
-}
+};

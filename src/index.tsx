@@ -1,25 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import styled from 'styled-components'
-import Icon from './icon'
-// import {} from ''
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Icon, { IconName } from './icon';
+import './icon/icon.scss';
 interface Prop {
-  name: string
+  name: string;
 }
-const Wrapper = styled.div`
-  .icon {
-    height: 20px;
-    width: 20px;
-    fill: red;
-    vertical-align: middle;
-  }
-`
 const App: React.FC<Prop> = (props) => {
   return (
-    <Wrapper>
-      <Icon name="tag" iconClass="icon" />
+    <div>
+      <Icon name={IconName.editor} iconClass="icon" />
+      <Icon name={IconName.arrowLeft} iconClass="icon" />
       <span>图标</span>
-    </Wrapper>
-  )
-}
-ReactDOM.render(<App name="fan" />, document.getElementById('app'))
+    </div>
+  );
+};
+ReactDOM.render(<App name="fan" />, document.getElementById('app'));
