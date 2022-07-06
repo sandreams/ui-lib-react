@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
+import classnames from 'src/helpers/classnames';
 import './iconfont.js';
 import './icon.scss';
 // 导入 目录下所有svg 的方式
@@ -24,15 +25,15 @@ enum IconName {
   charts = 'icon-chart',
   money = 'icon-money',
 }
-interface IconProps {
+interface IconProps extends SVGAttributes<SVGElement> {
   name: string;
-  iconClass?: string;
 }
 
 const Icon: React.FC<IconProps> = (props) => {
+  const { name, className, ...restProps } = props;
   return (
-    <svg className={`fui-icon ${props.iconClass || ''}`}>
-      <use xlinkHref={'#' + (props.name.startsWith('icon-') ? props.name : 'icon-' + props.name)} />
+    <svg className={classnames('fui-icon', className)} {...restProps}>
+      <use xlinkHref={'#' + (name.startsWith('icon-') ? name : 'icon-' + name)} />
     </svg>
   );
 };

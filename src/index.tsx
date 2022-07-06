@@ -6,10 +6,12 @@ interface Prop {
   name: string;
 }
 const App: React.FC<Prop> = (props) => {
+  const handleClick: React.MouseEventHandler = (e) => {
+    console.log(e.target);
+  };
   return (
     <div>
-      <Icon name={IconName.editor} iconClass="icon" />
-      <Icon name={IconName.arrowLeft} iconClass="icon" />
+      <Icon name={IconName.editor} className="darklin" onClick={handleClick} />
       <span>图标</span>
     </div>
   );
