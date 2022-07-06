@@ -11,12 +11,14 @@ const Wrapper = styled.div`
     height: 20px;
     width: 20px;
     fill: red;
+    vertical-align: middle;
   }
 `
 const App: React.FC<Prop> = (props) => {
   return (
     <Wrapper>
       <Icon name="tag" iconClass="icon" />
+      <span>图标</span>
     </Wrapper>
   )
 }
