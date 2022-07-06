@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Icon, { IconName } from './icon';
-import './icon/icon.scss';
+import './index.scss';
 interface Prop {
   name: string;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import './iconfont.js';
+import './icon.scss';
 // 导入 目录下所有svg 的方式
 // let importAll = (requireContext: __WebpackModuleApi.RequireContext) =>
 //   requireContext.keys().forEach(requireContext)
