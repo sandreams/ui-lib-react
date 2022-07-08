@@ -1,6 +1,4 @@
-/**
- * @jest-environment jsdom
- */
+import React from 'react';
 import renderer from 'react-test-renderer';
 import Icon from '../index';
 describe('icon components', () => {
