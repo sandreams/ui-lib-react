@@ -11,7 +11,7 @@ const App: React.FC<Prop> = (props) => {
   };
   return (
     <div>
-      <Icon name={IconName.editor} className="darklin" onClick={handleClick} />
+      <Icon name={IconName.charts} className="darklin" onClick={handleClick} />
       <span>图标</span>
     </div>
   );
