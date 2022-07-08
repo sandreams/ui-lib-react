@@ -5,7 +5,7 @@ exports[`icon components test snapshots 1`] = `
   className="fui-icon"
 >
   <use
-    xlinkHref="#undefined"
+    xlinkHref="#editor"
   />
 </svg>
 `;
