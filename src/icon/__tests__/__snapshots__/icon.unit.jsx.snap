@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`icon components test snapshots 1`] = `
+<svg
+  className="fui-icon"
+>
+  <use
+    xlinkHref="#editor"
+  />
+</svg>
+`;

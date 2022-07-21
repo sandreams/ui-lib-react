@@ -1,11 +1,12 @@
 import React from 'react';
+const fn = () => {
+  console.log(1);
+};
 const Button: React.FC = () => {
   return (
     <div>
-      <button>按钮</button>
+      <button onClick={fn}>按钮</button>
     </div>
   );
 };
-const a = 1;
-export { Button, a };
-// export default Button;
+export default Button;

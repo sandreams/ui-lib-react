@@ -11,13 +11,10 @@ describe('icon components', () => {
     expect(json).toMatchSnapshot();
   });
   it('test icon click', () => {
-    let n = 1;
-    const fn = () => {
-      n += 1;
-    };
+    const fn = jest.fn();
     const { queryByTestId, debug } = render(<Icon data-testid="aaa" name="editor" onClick={fn} />);
     // debug();
     fireEvent.click(queryByTestId('aaa'));
-    expect(n).toEqual(2);
+    expect(fn).toBeCalled();
   });
 });
