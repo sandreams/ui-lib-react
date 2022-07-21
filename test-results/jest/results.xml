@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="7" failures="0" errors="0" time="4.524">
+  <testsuite name="Button 组件" errors="0" failures="0" skipped="0" timestamp="2022-07-21T08:13:41" time="2.931" tests="1">
+    <testcase classname="Button 组件 测试 snapshot" name="Button 组件 测试 snapshot" time="0.009">
+    </testcase>
+  </testsuite>
+  <testsuite name="classnames" errors="0" failures="0" skipped="0" timestamp="2022-07-21T08:13:44" time="0.182" tests="4">
+    <testcase classname="classnames 当传入1个参数时，返回这个参数本身" name="classnames 当传入1个参数时，返回这个参数本身" time="0.001">
+    </testcase>
+    <testcase classname="classnames 当传入多个参数时，会依次拼接这些参数并用空格隔开" name="classnames 当传入多个参数时，会依次拼接这些参数并用空格隔开" time="0">
+    </testcase>
+    <testcase classname="classnames 当传入参数有falsy值，会过滤掉这些参数" name="classnames 当传入参数有falsy值，会过滤掉这些参数" time="0">
+    </testcase>
+    <testcase classname="classnames 什么都不传，会返回空字符串" name="classnames 什么都不传，会返回空字符串" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="icon components" errors="0" failures="0" skipped="0" timestamp="2022-07-21T08:13:45" time="0.55" tests="2">
+    <testcase classname="icon components test snapshots" name="icon components test snapshots" time="0.009">
+    </testcase>
+    <testcase classname="icon components test icon click" name="icon components test icon click" time="0.021">
+    </testcase>
+  </testsuite>
+</testsuites>
