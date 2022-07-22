@@ -44,7 +44,7 @@ jobs:
       - run: yarn ci
       - store_test_results:
           path: test-results
-  publish:
+  aaa:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -63,7 +63,7 @@ workflows:
       - test:
           requires:
             - prepare
-      - publish:
+      - aaa:
           requires:
             - build
           filters:
