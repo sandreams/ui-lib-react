@@ -1,6 +1,6 @@
 {
   "name": "sand-ui114",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "react ui library",
   "main": "dist/lib/main",
   "types": "dist/lib/index",
