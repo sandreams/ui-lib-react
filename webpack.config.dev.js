@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const base = require('./webpack.config');
 module.exports = Object.assign({}, base, {
   mode: 'development',
+  entry: './src/example.tsx',
   devServer: {
     open: false,
     compress: true,
@@ -10,7 +11,7 @@ module.exports = Object.assign({}, base, {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'UI Library',
-      template: './assets/template/index.html',
+      template: './assets/template/example.html',
       favicon: './assets/favicon.ico',
     }),
   ],
