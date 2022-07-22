@@ -1,0 +1,13 @@
+.sand-ui-dialog {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: fade-out($color: #000000, $amount: 0.48);
+    z-index: 1400;
+  }
+  &__content {
+  }
+}
