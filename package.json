@@ -1,9 +1,10 @@
 {
-  "name": "ui-lib-react",
+  "name": "sand-ui",
   "version": "0.0.1",
+  "description": "react ui library",
   "types": "dist/types/index",
   "files": [
-    "./dist"
+    "./lib"
   ],
   "repository": "git@github.com:sandreams/ui-lib-react.git",
   "author": "sanDream <fs517010856@gmail.com>",
