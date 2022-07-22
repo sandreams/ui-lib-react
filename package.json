@@ -1,7 +1,10 @@
 {
   "name": "ui-lib-react",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "types": "dist/types/index",
+  "files": [
+    "./dist"
+  ],
   "repository": "git@github.com:sandreams/ui-lib-react.git",
   "author": "sanDream <fs517010856@gmail.com>",
   "license": "MIT",

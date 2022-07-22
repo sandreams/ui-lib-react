@@ -17,3 +17,4 @@ const App: React.FC<Prop> = (props) => {
   );
 };
 ReactDOM.render(<App name="fan" />, document.getElementById('app'));
+export { Icon };

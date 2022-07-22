@@ -1,6 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 module.exports = {
   entry: './src/index.tsx',
   resolve: {
@@ -23,7 +22,7 @@ module.exports = {
     },
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'lib'),
     library: 'FUI',
     libraryTarget: 'umd',
     filename: '[name].[contenthash].js',
@@ -35,12 +34,4 @@ module.exports = {
       { test: /\.s[ac]ss$/, use: ['style-loader', 'css-loader', 'sass-loader'] },
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'UI Library',
-      template: './public/index.html',
-      favicon: './public/favicon.ico',
-    }),
-  ],
 };
