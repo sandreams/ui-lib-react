@@ -22,10 +22,9 @@ module.exports = {
     },
   },
   output: {
-    path: path.resolve(__dirname, 'lib'),
-    library: 'FUI',
+    path: path.resolve(__dirname, 'dist/lib'),
+    library: 'sand-ui',
     libraryTarget: 'umd',
-    filename: '[name].[contenthash].js',
   },
   module: {
     rules: [
