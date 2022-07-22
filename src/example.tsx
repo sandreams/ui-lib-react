@@ -1,19 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Icon, { IconName } from './icon';
+import { HashRouter as Router, Link, Switch, Route, Redirect } from 'react-router-dom';
+import Icon from './icon/icon.example';
 import './index.scss';
-interface Prop {
-  name: string;
-}
-const App: React.FC<Prop> = (props) => {
-  const handleClick: React.MouseEventHandler = (e) => {
-    console.log(e.target);
-  };
+const App: React.FC = () => {
   return (
-    <div>
-      <Icon name={IconName.charts} className="darklin" onClick={handleClick} />
-      <span>图标</span>
-    </div>
+    <Router>
+      <header>
+        <h2>导航</h2>
+      </header>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/icon">Icon</Link>
+          </li>
+          <li>
+            <Link to="/button">Button</Link>
+          </li>
+        </ul>
+      </nav>
+      <Switch>
+        <Route exact path="/">
+          <Redirect to="/icon" />
+        </Route>
+        <Route path="/icon">
+          <Icon />
+        </Route>
+        <Route path="/button">
+          <Icon />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
-ReactDOM.render(<App name="fan" />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
