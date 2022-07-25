@@ -17,6 +17,7 @@ enum IconName {
   setting = 'setting',
   charts = 'chart',
   money = 'money',
+  close = 'close',
 }
 interface IconProps extends SVGAttributes<SVGElement> {
   name: string;

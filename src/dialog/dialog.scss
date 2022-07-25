@@ -1,3 +1,4 @@
+// color: #8e8e93 cancel #007afd ok
 .sand-ui-dialog {
   &__overlay {
     position: fixed;
@@ -6,8 +7,33 @@
     width: 100vw;
     height: 100vh;
     background: fade-out($color: #000000, $amount: 0.48);
+    z-index: 1300;
+    // background-color: #007afd;
+  }
+  &__content-container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
     z-index: 1400;
+    justify-content: center;
+    align-items: flex-start;
   }
   &__content {
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+  }
+  &__header {
+  }
+  &__main {
+  }
+  &__footer {
+  }
+  &__close {
   }
 }
