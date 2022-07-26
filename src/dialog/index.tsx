@@ -18,7 +18,7 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({ visible, children })
           <button className={sc('close')}>
             <Icon name={IconName.close} />
           </button>
-          <main className={sc('main')}>{children}</main>
+          <main className={sc('body')}>{children}</main>
           <footer className={sc('footer')}>
             <button>取消</button>
             <button>确定</button>

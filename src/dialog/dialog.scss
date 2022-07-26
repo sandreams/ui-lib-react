@@ -1,4 +1,4 @@
-// color: #8e8e93 cancel #007afd ok
+@import '../helper';
 .sand-ui-dialog {
   &__overlay {
     position: fixed;
@@ -6,7 +6,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: fade-out($color: #000000, $amount: 0.48);
+    background: fade-out($color: $colors-black, $amount: 0.48);
     z-index: 1300;
   }
   &__content-container {
@@ -19,31 +19,37 @@
     z-index: 1400;
     justify-content: center;
     align-items: flex-start;
-    button {
-      padding: 0;
-      margin: 0;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-    }
+    color: $colors-font;
   }
   &__content {
     position: relative;
     margin-top: 100px;
     width: 100%;
     max-width: 400px;
-    background: #ffffff;
+    background: $colors-white;
   }
   &__header {
-    padding: 1em;
+    padding: 16px 24px;
   }
-  &__main {
+  &__body {
+    padding: 8px 24px;
   }
   &__footer {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      margin-right: 12px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
   &__close {
     position: absolute;
-    top: 1em;
-    right: 1em;
+    top: 8px;
+    right: 16px;
+    font-size: $close-btn-size;
+    padding: 4px;
   }
 }

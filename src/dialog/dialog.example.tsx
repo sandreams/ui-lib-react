@@ -12,6 +12,51 @@ const DialogExample: React.FC = () => {
         可见
       </button>
       <Dialog visible={v}>aaa</Dialog>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
+      <p>aaa</p>
     </section>
   );
 };
