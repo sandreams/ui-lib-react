@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router, Link, Switch, Route, Redirect } from 'react-router-dom';
 import Icon from './icon/icon.example';
 import Dialog from './dialog/dialog.example';
+import Button from './button/button.example';
 import './index.scss';
 const App: React.FC = () => {
   return (
@@ -19,6 +20,9 @@ const App: React.FC = () => {
             <Link to="/icon">Icon</Link>
           </li>
           <li>
+            <Link to="/button">Button</Link>
+          </li>
+          <li>
             <Link to="/dialog">Dialog</Link>
           </li>
         </ul>
@@ -29,6 +33,9 @@ const App: React.FC = () => {
         </Route>
         <Route path="/icon">
           <Icon />
+        </Route>
+        <Route path="/button">
+          <Button />
         </Route>
         <Route path="/dialog">
           <Dialog />
