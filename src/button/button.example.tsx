@@ -1,10 +1,10 @@
 import React from 'react';
-import Button, { BtnColorSchema } from './index';
+import Button from './index';
 
 const ButtonExample: React.FC = () => {
   return (
     <section>
-      <Button colorSchema={BtnColorSchema.normal} />
+      <Button type="fill" />
     </section>
   );
 };
