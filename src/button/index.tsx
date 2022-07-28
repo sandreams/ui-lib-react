@@ -6,12 +6,17 @@ import './button.scss';
 const scopedClass = scopedClassMaker('sand-btn', '-');
 const sc = scopedClass;
 interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-  colorSchema?: string;
+  colorSchema?: 'default' | 'primary' | 'success' | 'error' | 'warning';
   type?: 'outline' | 'fill' | 'ghost' | 'link';
 }
-const Button: React.FC<React.PropsWithChildren<Props>> = ({ type = 'outline', children, ...restProps }) => {
+const Button: React.FC<React.PropsWithChildren<Props>> = ({
+  type = 'outline',
+  colorSchema = 'default',
+  children,
+  ...restProps
+}) => {
   return (
-    <button type="button" className={classnames(sc(''), sc(type))} {...restProps}>
+    <button type="button" className={classnames(sc(''), sc(type), sc('schema--' + colorSchema))} {...restProps}>
       {children || '按钮'}
     </button>
   );
@@ -19,6 +24,7 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({ type = 'outline', ch
 
 Button.defaultProps = {
   type: 'outline',
+  colorSchema: 'default',
 };
 
 export default Button;

@@ -4,7 +4,72 @@ import Button from './index';
 const ButtonExample: React.FC = () => {
   return (
     <section>
-      <Button type="fill" />
+      <div style={{ marginBottom: '20px' }}>
+        <Button style={{ marginRight: '20px' }}>OutLine</Button>
+        <Button style={{ marginRight: '20px' }} type="fill">
+          Fill
+        </Button>
+        <Button style={{ marginRight: '20px' }} type="ghost">
+          Ghost
+        </Button>
+        <Button type="link">Link</Button>
+      </div>
+      <div style={{ marginBottom: '20px' }}>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary">
+          OutLine
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill">
+          Fill
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="ghost">
+          Ghost
+        </Button>
+        <Button colorSchema="primary" type="link">
+          Link
+        </Button>
+      </div>
+      <div style={{ marginBottom: '20px' }}>
+        <Button style={{ marginRight: '20px' }} colorSchema="success">
+          OutLine
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="success" type="fill">
+          Fill
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="success" type="ghost">
+          Ghost
+        </Button>
+        <Button colorSchema="success" type="link">
+          Link
+        </Button>
+      </div>
+      <div style={{ marginBottom: '20px' }}>
+        <Button style={{ marginRight: '20px' }} colorSchema="error">
+          OutLine
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="error" type="fill">
+          Fill
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="error" type="ghost">
+          Ghost
+        </Button>
+        <Button colorSchema="error" type="link">
+          Link
+        </Button>
+      </div>
+      <div style={{ marginBottom: '20px' }}>
+        <Button style={{ marginRight: '20px' }} colorSchema="warning">
+          OutLine
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="warning" type="fill">
+          Fill
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="warning" type="ghost">
+          Ghost
+        </Button>
+        <Button colorSchema="warning" type="link">
+          Link
+        </Button>
+      </div>
     </section>
   );
 };
