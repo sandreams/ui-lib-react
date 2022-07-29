@@ -14,16 +14,40 @@ $colors-btn-warning: $colors-orange;
     background: darken($color: $color, $amount: 10%);
   }
 }
-.sand-btn {
+@mixin btn-xs {
+  padding: 0 8px;
+  height: 24px;
+  min-width: 24px;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+}
+@mixin btn-sm {
+  padding: 0 12px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+}
+@mixin btn-md {
   padding: 0 16px;
   height: 40px;
   min-width: 40px;
+  border-radius: $radius-md;
+  font-size: $font-size-md;
+}
+@mixin btn-lg {
+  padding: 0 24px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: $radius-md;
+  font-size: $font-size-lg;
+}
+.sand-btn {
+  @include btn-md;
   vertical-align: middle;
   cursor: pointer;
   line-height: 1.2;
-  border-radius: 6px;
   white-space: nowrap;
-  font-size: 16px;
   transition: all 0.4s;
   &-schema--default {
     @include colorSchema($color: $colors-btn-default);
@@ -60,5 +84,17 @@ $colors-btn-warning: $colors-orange;
       text-decoration: underline;
       background: $colors-transparent;
     }
+  }
+  &-xs {
+    @include btn-xs;
+  }
+  &-sm {
+    @include btn-sm;
+  }
+  &-md {
+    @include btn-md;
+  }
+  &-lg {
+    @include btn-lg;
   }
 }

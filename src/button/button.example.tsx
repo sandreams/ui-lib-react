@@ -70,6 +70,20 @@ const ButtonExample: React.FC = () => {
           Link
         </Button>
       </div>
+      <div style={{ marginBottom: '20px' }}>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="xs">
+          xs
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="sm">
+          sm
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="md">
+          md
+        </Button>
+        <Button colorSchema="primary" type="fill" size="lg">
+          lg
+        </Button>
+      </div>
     </section>
   );
 };
