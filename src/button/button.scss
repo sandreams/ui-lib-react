@@ -44,6 +44,9 @@ $colors-btn-warning: $colors-orange;
 }
 .sand-btn {
   @include btn-md;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   vertical-align: middle;
   cursor: pointer;
   line-height: 1.2;
@@ -96,5 +99,15 @@ $colors-btn-warning: $colors-orange;
   }
   &-lg {
     @include btn-lg;
+  }
+  &-icon {
+    display: inline-flex;
+    align-self: center;
+    &--left {
+      margin-right: 8px;
+    }
+    &--right {
+      margin-left: 8px;
+    }
   }
 }

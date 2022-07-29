@@ -1,6 +1,11 @@
 import React from 'react';
 import Button from './index';
+import Icon, { IconName } from 'src/icon';
 
+interface TestProp {
+  aaa: string;
+}
+const tp: TestProp = <Icon name={IconName.money} />;
 const ButtonExample: React.FC = () => {
   return (
     <section>
@@ -82,6 +87,11 @@ const ButtonExample: React.FC = () => {
         </Button>
         <Button colorSchema="primary" type="fill" size="lg">
           lg
+        </Button>
+      </div>
+      <div style={{ marginBottom: '20px' }}>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="md" iconLeft={IconName.money}>
+          md
         </Button>
       </div>
     </section>
