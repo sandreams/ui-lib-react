@@ -42,6 +42,11 @@ $colors-btn-warning: $colors-orange;
   border-radius: $radius-md;
   font-size: $font-size-lg;
 }
+@mixin btn-icon {
+  display: inline-flex;
+  align-self: center;
+  flex-shrink: 0;
+}
 .sand-btn {
   @include btn-md;
   display: inline-flex;
@@ -101,13 +106,13 @@ $colors-btn-warning: $colors-orange;
     @include btn-lg;
   }
   &-icon {
-    display: inline-flex;
-    align-self: center;
     &--left {
-      margin-right: 8px;
+      @include btn-icon;
+      margin-right: 0.5em;
     }
     &--right {
-      margin-left: 8px;
+      @include btn-icon;
+      margin-left: 0.5em;
     }
   }
 }

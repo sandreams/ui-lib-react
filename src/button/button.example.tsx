@@ -90,8 +90,20 @@ const ButtonExample: React.FC = () => {
         </Button>
       </div>
       <div style={{ marginBottom: '20px' }}>
-        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="md" iconLeft={IconName.money}>
-          md
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="md" iconLeft={IconName.check}>
+          Left
+        </Button>
+        <Button
+          style={{ marginRight: '20px' }}
+          colorSchema="primary"
+          size="md"
+          iconLeft={IconName.check}
+          iconRight={IconName.search}
+        >
+          Both
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="md" iconRight={IconName.check}>
+          Right
         </Button>
       </div>
     </section>
