@@ -50,12 +50,14 @@ $colors-btn-warning: $colors-orange;
 .sand-btn {
   @include btn-md;
   display: inline-flex;
+  position: relative;
   align-items: center;
   justify-content: center;
   vertical-align: middle;
   cursor: pointer;
   line-height: 1.2;
   white-space: nowrap;
+  overflow: hidden;
   transition: all 0.4s;
   &-schema--default {
     @include colorSchema($color: $colors-btn-default);
@@ -77,7 +79,6 @@ $colors-btn-warning: $colors-orange;
     border: 1px solid currentColor;
   }
   &-fill {
-    border: 1px solid currentColor;
     color: $colors-white;
   }
   &-ghost {
@@ -114,5 +115,35 @@ $colors-btn-warning: $colors-orange;
       @include btn-icon;
       margin-left: 0.5em;
     }
+  }
+  &-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    [class*='icon'] {
+      display: none;
+    }
+  }
+  &-loading__wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0 0.5em;
+    font-size: 1em;
+  }
+  &-loading {
+    width: 1em;
+    height: 1em;
+    border: 2px solid currentColor;
+    border-top-color: $colors-transparent;
+    border-radius: 50%;
+    animation: circle infinite 0.6s linear;
+  }
+}
+@keyframes circle {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

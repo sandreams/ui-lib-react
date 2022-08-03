@@ -106,6 +106,41 @@ const ButtonExample: React.FC = () => {
           Right
         </Button>
       </div>
+      <div style={{ marginBottom: '20px' }}>
+        <Button
+          style={{ marginRight: '20px' }}
+          colorSchema="primary"
+          type="fill"
+          size="md"
+          disabled
+          iconRight={IconName.check}
+        >
+          Disabled
+        </Button>
+        <Button
+          style={{ marginRight: '20px' }}
+          colorSchema="primary"
+          type="fill"
+          size="md"
+          loading
+          iconLeft={IconName.check}
+        >
+          Disabled
+        </Button>
+        <Button style={{ marginRight: '20px' }} colorSchema="primary" size="md" disabled iconRight={IconName.close}>
+          Disabled
+        </Button>
+        <Button
+          style={{ marginRight: '20px' }}
+          colorSchema="primary"
+          size="md"
+          loading
+          iconLeft={IconName.close}
+          loadingText="加载中..."
+        >
+          Disabled
+        </Button>
+      </div>
     </section>
   );
 };

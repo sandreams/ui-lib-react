@@ -12,6 +12,9 @@ interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
   size?: 'xs' | 'sm' | 'md' | 'lg';
   iconLeft?: ReactElement | IconName;
   iconRight?: ReactElement | IconName;
+  loading?: boolean;
+  disabled?: boolean;
+  loadingText?: string;
 }
 const Button: React.FC<React.PropsWithChildren<Props>> = ({
   type = 'outline',
@@ -20,18 +23,36 @@ const Button: React.FC<React.PropsWithChildren<Props>> = ({
   iconLeft,
   iconRight,
   children,
+  loading,
+  disabled,
+  loadingText,
   ...restProps
 }) => {
+  const showOverlay = loading || disabled;
   return (
     <button
       type="button"
-      className={classnames(sc(''), sc(type), sc('schema--' + colorSchema), sc(size))}
+      className={classnames(
+        sc(''),
+        sc(type),
+        sc('schema--' + colorSchema),
+        sc(size),
+        showOverlay ? sc('disabled') : ''
+      )}
       {...restProps}
     >
+      {loading ? (
+        <>
+          <div className={sc('loading__wrapper')}>
+            <span className={sc('loading')} />
+          </div>
+          {loadingText}
+        </>
+      ) : null}
       {iconLeft ? (
         <span className={sc('icon--left')}>{typeof iconLeft === 'string' ? <Icon name={iconLeft} /> : iconLeft}</span>
       ) : null}
-      {children || '按钮'}
+      {!loading ? children || '按钮' : null}
       {iconRight ? (
         <span className={sc('icon--right')}>
           {typeof iconRight === 'string' ? <Icon name={iconRight} /> : iconRight}
@@ -45,6 +66,9 @@ Button.defaultProps = {
   type: 'outline',
   colorSchema: 'default',
   size: 'md',
+  loading: false,
+  disabled: false,
+  loadingText: '',
 };
 
 export default Button;
