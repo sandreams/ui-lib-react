@@ -82,7 +82,15 @@ const ButtonExample: React.FC = () => {
         <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="sm">
           sm
         </Button>
-        <Button style={{ marginRight: '20px' }} colorSchema="primary" type="fill" size="md">
+        <Button
+          style={{ marginRight: '20px' }}
+          colorSchema="primary"
+          type="fill"
+          size="md"
+          onClick={() => {
+            alert('aaa');
+          }}
+        >
           md
         </Button>
         <Button colorSchema="primary" type="fill" size="lg">
