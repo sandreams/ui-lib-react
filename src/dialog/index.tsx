@@ -25,22 +25,20 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
   confirmColorSchema,
   closeOnOverlayClick,
 }) => {
-  const aaa = useRef(null);
+  const container = useRef(null);
   const onClickClose: React.MouseEventHandler = (e) => {
     onClose(e);
   };
   const onClickOverlay: React.MouseEventHandler = (e) => {
-    // console.log('aaa :>> ', aaa.current);
-    // console.log('e :>> ', e.target);
-    console.log('isEqual :>> ', e.target === aaa.current);
-    if (closeOnOverlayClick) {
+    e.stopPropagation();
+    if (container.current === e.target && closeOnOverlayClick) {
       onClose(e);
     }
   };
   return visible ? (
     <div className={sc('dialog')}>
       <div className={sc('overlay')} />
-      <div ref={aaa} className={sc('content-container')} onClick={onClickOverlay}>
+      <div ref={container} className={sc('content-container')} onClick={onClickOverlay}>
         <section className={sc('content')}>
           <header className={sc('header')}> 弹出框标题 </header>
           <button className={sc('close')} onClick={onClickClose}>
