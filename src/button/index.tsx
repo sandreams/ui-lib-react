@@ -6,8 +6,10 @@ import './button.scss';
 
 const scopedClass = scopedClassMaker('sand-btn', '-');
 const sc = scopedClass;
+
+type colorSchema = 'default' | 'primary' | 'success' | 'error' | 'warning';
 interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'type'> {
-  colorSchema?: 'default' | 'primary' | 'success' | 'error' | 'warning';
+  colorSchema?: colorSchema;
   type?: 'outline' | 'fill' | 'ghost' | 'link';
   size?: 'xs' | 'sm' | 'md' | 'lg';
   iconLeft?: ReactElement | IconName;
@@ -72,3 +74,4 @@ Button.defaultProps = {
 };
 
 export default Button;
+export { colorSchema };

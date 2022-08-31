@@ -11,7 +11,17 @@ const DialogExample: React.FC = () => {
       >
         可见
       </button>
-      <Dialog visible={v}>aaa</Dialog>
+      <Dialog
+        visible={v}
+        onClose={() => {
+          setVisible(false);
+        }}
+        confirmText="OK"
+        cancelText="关闭"
+        closeOnOverlayClick={false}
+      >
+        aaa
+      </Dialog>
       <p>aaa</p>
       <p>aaa</p>
       <p>aaa</p>

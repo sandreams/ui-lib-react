@@ -1,5 +1,5 @@
 @import '../helper';
-.sand-dialog {
+.sand-ui-dialog {
   &__overlay {
     position: fixed;
     top: 0;
@@ -27,6 +27,7 @@
     width: 100%;
     max-width: 400px;
     background: $colors-white;
+    border-radius: $radius-md;
   }
   &__header {
     padding: 16px 24px;
@@ -51,5 +52,9 @@
     right: 16px;
     font-size: $close-btn-size;
     padding: 4px;
+    border-radius: $radius-md;
+    &:hover {
+      background: lighten($colors-gray-light, 20%);
+    }
   }
 }
