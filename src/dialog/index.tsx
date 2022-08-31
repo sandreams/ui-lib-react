@@ -14,6 +14,8 @@ interface Props {
   confirmColorSchema?: colorSchema;
   onClose: React.MouseEventHandler;
   closeOnOverlayClick?: boolean;
+  onCancel?: React.MouseEventHandler;
+  onConfirm?: React.MouseEventHandler;
 }
 const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
   visible,
@@ -24,6 +26,8 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
   cancelColorSchema,
   confirmColorSchema,
   closeOnOverlayClick,
+  onCancel,
+  onConfirm,
 }) => {
   const container = useRef(null);
   const onClickClose: React.MouseEventHandler = (e) => {
@@ -33,6 +37,16 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
     e.stopPropagation();
     if (container.current === e.target && closeOnOverlayClick) {
       onClose(e);
+    }
+  };
+  const onClickCancel: React.MouseEventHandler = (e) => {
+    if (onCancel) {
+      onCancel(e);
+    }
+  };
+  const onClickConfirm: React.MouseEventHandler = (e) => {
+    if (onConfirm) {
+      onConfirm(e);
     }
   };
   return visible ? (
@@ -46,10 +60,10 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
           </button>
           <main className={sc('body')}>{children}</main>
           <footer className={sc('footer')}>
-            <Button type="fill" colorSchema={cancelColorSchema}>
+            <Button type="fill" colorSchema={cancelColorSchema} onClick={onClickCancel}>
               {cancelText}
             </Button>
-            <Button type="fill" colorSchema={confirmColorSchema}>
+            <Button type="fill" colorSchema={confirmColorSchema} onClick={onClickConfirm}>
               {confirmText}
             </Button>
           </footer>

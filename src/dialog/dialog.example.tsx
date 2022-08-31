@@ -19,6 +19,12 @@ const DialogExample: React.FC = () => {
         confirmText="OK"
         cancelText="关闭"
         closeOnOverlayClick={false}
+        onCancel={(e) => {
+          console.log('cancel :>> ', e);
+        }}
+        onConfirm={(e) => {
+          console.log('confirm :>> ', e);
+        }}
       >
         aaa
       </Dialog>
