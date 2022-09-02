@@ -7,7 +7,7 @@
     width: 100vw;
     height: 100vh;
     background: fade-out($color: $colors-black, $amount: 0.48);
-    z-index: 1300;
+    z-index: 130;
   }
   &__content-container {
     display: flex;
@@ -16,7 +16,7 @@
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 1400;
+    z-index: 140;
     justify-content: center;
     align-items: flex-start;
     color: $colors-font;

@@ -3,10 +3,12 @@ import { scopedClassMaker } from 'src/helpers/classes';
 import Icon, { IconName } from 'src/icon';
 import Button, { colorSchema } from 'src/button';
 import './dialog.scss';
+import ReactDOM from 'react-dom';
 
 const scopedClass = scopedClassMaker('sand-ui-dialog', '__');
 const sc = scopedClass;
 interface Props {
+  titleText?: string;
   visible: boolean;
   cancelText?: string;
   confirmText?: string;
@@ -18,6 +20,7 @@ interface Props {
   onConfirm?: React.MouseEventHandler;
 }
 const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
+  titleText,
   visible,
   children,
   cancelText,
@@ -49,12 +52,12 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
       onConfirm(e);
     }
   };
-  return visible ? (
+  const element = visible ? (
     <div className={sc('dialog')}>
       <div className={sc('overlay')} />
       <div ref={container} className={sc('content-container')} onClick={onClickOverlay}>
         <section className={sc('content')}>
-          <header className={sc('header')}> 弹出框标题 </header>
+          <header className={sc('header')}> {titleText} </header>
           <button className={sc('close')} onClick={onClickClose}>
             <Icon name={IconName.close} />
           </button>
@@ -71,8 +74,10 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
       </div>
     </div>
   ) : null;
+  return ReactDOM.createPortal(element, document.body);
 };
 Dialog.defaultProps = {
+  titleText: '弹出框标题',
   cancelText: '取消',
   confirmText: '确定',
   cancelColorSchema: 'default',
