@@ -84,4 +84,22 @@ Dialog.defaultProps = {
   confirmColorSchema: 'primary',
   closeOnOverlayClick: true,
 };
+const alertModal = (content: any) => {
+  const div = document.createElement('div');
+  document.body.append(div);
+  const node = (
+    <Dialog
+      visible={true}
+      onClose={() => {
+        ReactDOM.render(React.cloneElement(node, { visible: false }), div);
+        ReactDOM.unmountComponentAtNode(div);
+        div.remove();
+      }}
+    >
+      {content}
+    </Dialog>
+  );
+  ReactDOM.render(node, div);
+};
 export default Dialog;
+export { alertModal };

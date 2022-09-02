@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Dialog from './index';
+import Dialog, { alertModal } from './index';
 import Button from 'src/button';
 
 const DialogExample: React.FC = () => {
@@ -7,7 +7,8 @@ const DialogExample: React.FC = () => {
   const [v2, setVisible2] = useState(false);
   return (
     <section>
-      <div className="example1" style={{ margin: '20px', zIndex: 10, background: 'white', border: '1px solid red' }}>
+      <div className="example1" style={{ margin: '20px', zIndex: 10, background: 'white' }}>
+        <h1>Example1:</h1>
         <Button
           onClick={() => {
             setVisible(!v);
@@ -33,7 +34,8 @@ const DialogExample: React.FC = () => {
           aaa
         </Dialog>
       </div>
-      <div className="example2" style={{ margin: '0 20px', zIndex: 9 }}>
+      <div className="example2" style={{ margin: '20px', zIndex: 9 }}>
+        <h1>Example2:</h1>
         <Button
           onClick={() => {
             setVisible2(!v2);
@@ -60,7 +62,17 @@ const DialogExample: React.FC = () => {
           aaa
         </Dialog>
       </div>
-
+      <div className="example3" style={{ margin: '0 20px', zIndex: 8 }}>
+        <h1>Example3:</h1>
+        <Button
+          type="fill"
+          onClick={() => {
+            alertModal('点击弹出 API');
+          }}
+        >
+          点击弹出
+        </Button>
+      </div>
       <p>aaa</p>
       <p>aaa</p>
       <p>aaa</p>
