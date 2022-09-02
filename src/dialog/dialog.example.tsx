@@ -67,7 +67,7 @@ const DialogExample: React.FC = () => {
         <Button
           type="fill"
           onClick={() => {
-            alertModal('点击弹出 API');
+            alertModal('点击弹出 API', { titleText: 'adasdas' });
           }}
         >
           点击弹出

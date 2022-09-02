@@ -84,7 +84,8 @@ Dialog.defaultProps = {
   confirmColorSchema: 'primary',
   closeOnOverlayClick: true,
 };
-const alertModal = (content: any) => {
+type AlertProps = Omit<Props, 'onClose'>;
+const alertModal = (content: string, options = {}) => {
   const div = document.createElement('div');
   document.body.append(div);
   const node = (
@@ -95,6 +96,7 @@ const alertModal = (content: any) => {
         ReactDOM.unmountComponentAtNode(div);
         div.remove();
       }}
+      {...options}
     >
       {content}
     </Dialog>
