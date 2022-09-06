@@ -70,7 +70,7 @@ const DialogExample: React.FC = () => {
             alertModal('点击弹出 API', { titleText: 'adasdas' });
           }}
         >
-          点击弹出
+          点击弹出 Alert
         </Button>
       </div>
       <p>aaa</p>

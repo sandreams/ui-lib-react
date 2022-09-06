@@ -18,6 +18,8 @@ interface Props {
   closeOnOverlayClick?: boolean;
   onCancel?: React.MouseEventHandler;
   onConfirm?: React.MouseEventHandler;
+  showCancelBtn?: boolean;
+  showConfirmBtn?: boolean;
 }
 const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
   titleText,
@@ -31,6 +33,8 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
   closeOnOverlayClick,
   onCancel,
   onConfirm,
+  showCancelBtn,
+  showConfirmBtn,
 }) => {
   const container = useRef(null);
   const onClickClose: React.MouseEventHandler = (e) => {
@@ -63,12 +67,16 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
           </button>
           <main className={sc('body')}>{children}</main>
           <footer className={sc('footer')}>
-            <Button type="fill" colorSchema={cancelColorSchema} onClick={onClickCancel}>
-              {cancelText}
-            </Button>
-            <Button type="fill" colorSchema={confirmColorSchema} onClick={onClickConfirm}>
-              {confirmText}
-            </Button>
+            {showCancelBtn ? (
+              <Button type="fill" colorSchema={cancelColorSchema} onClick={onClickCancel}>
+                {cancelText}
+              </Button>
+            ) : null}
+            {showConfirmBtn ? (
+              <Button type="fill" colorSchema={confirmColorSchema} onClick={onClickConfirm}>
+                {confirmText}
+              </Button>
+            ) : null}
           </footer>
         </section>
       </div>
@@ -83,14 +91,18 @@ Dialog.defaultProps = {
   cancelColorSchema: 'default',
   confirmColorSchema: 'primary',
   closeOnOverlayClick: true,
+  showCancelBtn: true,
+  showConfirmBtn: true,
 };
-type AlertProps = Omit<Props, 'onClose'>;
-const alertModal = (content: string, options = {}) => {
+type AlertProps = Omit<Props, 'onClose' | 'visible' | 'showCancelBtn' | 'showConfirmBtn'>;
+const alertModal = (content: string, options: AlertProps = {}) => {
   const div = document.createElement('div');
   document.body.append(div);
   const node = (
     <Dialog
       visible={true}
+      showCancelBtn={false}
+      showConfirmBtn={false}
       onClose={() => {
         ReactDOM.render(React.cloneElement(node, { visible: false }), div);
         ReactDOM.unmountComponentAtNode(div);
@@ -104,4 +116,4 @@ const alertModal = (content: string, options = {}) => {
   ReactDOM.render(node, div);
 };
 export default Dialog;
-export { alertModal };
+export { alertModal, AlertProps };
