@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { ReactFragment, ReactNode, useRef } from 'react';
 import { scopedClassMaker } from 'src/helpers/classes';
 import Icon, { IconName } from 'src/icon';
 import Button, { colorSchema } from 'src/button';
@@ -94,8 +94,17 @@ Dialog.defaultProps = {
   showCancelBtn: true,
   showConfirmBtn: true,
 };
-type AlertProps = Omit<Props, 'onClose' | 'visible' | 'showCancelBtn' | 'showConfirmBtn'>;
-const alertModal = (content: string, options: AlertProps = {}) => {
+type ConfirmProps =
+  | Omit<Props, 'onClose' | 'visible' | 'showCancelBtn' | 'showConfirmBtn'> & {
+      yes?: () => void;
+      no?: () => void;
+    };
+type AlertProps = Omit<
+  Props,
+  'onClose' | 'visible' | 'showCancelBtn' | 'showConfirmBtn' | 'onCancel' | 'onConfirm' | 'closeOnOverlayClick'
+>;
+type ModalProps = Omit<Props, 'onClose' | 'visible'>;
+const showAlert = (content: string, options: AlertProps = {}) => {
   const div = document.createElement('div');
   document.body.append(div);
   const node = (
@@ -115,5 +124,55 @@ const alertModal = (content: string, options: AlertProps = {}) => {
   );
   ReactDOM.render(node, div);
 };
+const showConfirm = (content: string, options: ConfirmProps) => {
+  const emptyFunc = () => {};
+  const { yes = emptyFunc, no = emptyFunc, ...rest } = options;
+  const div = document.createElement('div');
+  const removeElement = () => {
+    ReactDOM.render(React.cloneElement(node, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div);
+    div.remove();
+  };
+  const onYes = () => {
+    removeElement();
+    yes();
+  };
+  const onNo = () => {
+    removeElement();
+    no();
+  };
+  document.body.append(div);
+  const node = (
+    <Dialog
+      visible={true}
+      showCancelBtn={true}
+      showConfirmBtn={true}
+      closeOnOverlayClick={false}
+      onClose={onNo}
+      onCancel={onNo}
+      onConfirm={onYes}
+      {...rest}
+    >
+      {content}
+    </Dialog>
+  );
+  ReactDOM.render(node, div);
+};
+const showModal = (content: ReactNode | ReactFragment, options: ModalProps = {}) => {
+  const div = document.createElement('div');
+  document.body.append(div);
+  const onClose = () => {
+    ReactDOM.render(React.cloneElement(node, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div);
+    div.remove();
+  };
+  const node = (
+    <Dialog visible={true} onClose={onClose} {...options}>
+      {content}
+    </Dialog>
+  );
+  ReactDOM.render(node, div);
+  return onClose;
+};
 export default Dialog;
-export { alertModal, AlertProps };
+export { showAlert, AlertProps, showConfirm, ConfirmProps, showModal };

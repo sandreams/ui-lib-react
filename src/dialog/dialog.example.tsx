@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
-import Dialog, { alertModal } from './index';
+import Dialog, { showAlert, showConfirm, showModal } from './index';
 import Button from 'src/button';
 
 const DialogExample: React.FC = () => {
   const [v, setVisible] = useState(false);
   const [v2, setVisible2] = useState(false);
+  const openModal = () => {
+    const close = showModal(
+      <h1>
+        你好{' '}
+        <button
+          onClick={() => {
+            close();
+          }}
+        >
+          关闭
+        </button>
+      </h1>
+    );
+  };
   return (
     <section>
       <div className="example1" style={{ margin: '20px', zIndex: 10, background: 'white' }}>
@@ -67,10 +81,35 @@ const DialogExample: React.FC = () => {
         <Button
           type="fill"
           onClick={() => {
-            alertModal('点击弹出 API', { titleText: 'adasdas' });
+            showAlert('点击弹出 API', { titleText: 'adasdas' });
           }}
         >
           点击弹出 Alert
+        </Button>
+      </div>
+      <div className="example4" style={{ margin: '0 20px', zIndex: 8 }}>
+        <h1>Example4:</h1>
+        <Button
+          type="fill"
+          onClick={() => {
+            showConfirm('点击弹出 API', {
+              titleText: '确认',
+              yes: () => {
+                alert('点击了确定');
+              },
+              no: () => {
+                alert('点击了取消');
+              },
+            });
+          }}
+        >
+          点击弹出 Confirm
+        </Button>
+      </div>
+      <div className="example4" style={{ margin: '0 20px', zIndex: 8 }}>
+        <h1>Example5:</h1>
+        <Button type="fill" onClick={openModal}>
+          点击弹出 Modal
         </Button>
       </div>
       <p>aaa</p>
