@@ -95,10 +95,10 @@ const DialogExample: React.FC = () => {
             showConfirm('点击弹出 API', {
               titleText: '确认',
               yes: () => {
-                alert('点击了确定');
+                console.log('点击了确定');
               },
               no: () => {
-                alert('点击了取消');
+                console.log('点击了取消');
               },
             });
           }}

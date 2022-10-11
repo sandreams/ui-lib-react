@@ -2,10 +2,6 @@ import React from 'react';
 import Button from './index';
 import Icon, { IconName } from 'src/icon';
 
-interface TestProp {
-  aaa: string;
-}
-const tp: TestProp = <Icon name={IconName.money} />;
 const ButtonExample: React.FC = () => {
   return (
     <section>

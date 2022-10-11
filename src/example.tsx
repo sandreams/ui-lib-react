@@ -4,6 +4,7 @@ import { HashRouter as Router, Link, Switch, Route, Redirect } from 'react-route
 import Icon from './icon/icon.example';
 import Dialog from './dialog/dialog.example';
 import Button from './button/button.example';
+import Layout from './layout/layout.example';
 import './index.scss';
 const App: React.FC = () => {
   return (
@@ -25,6 +26,9 @@ const App: React.FC = () => {
           <li>
             <Link to="/dialog">Dialog</Link>
           </li>
+          <li>
+            <Link to="/layout">Layout</Link>
+          </li>
         </ul>
       </nav>
       <Switch>
@@ -39,6 +43,9 @@ const App: React.FC = () => {
         </Route>
         <Route path="/dialog">
           <Dialog />
+        </Route>
+        <Route path="/layout">
+          <Layout />
         </Route>
       </Switch>
     </Router>
