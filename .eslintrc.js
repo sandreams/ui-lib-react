@@ -22,6 +22,7 @@ module.exports = {
       files: ['*.ts', '*.tsx', 'src/**/__tests__/**/*'],
       rules: {
         'no-undef': 'off',
+        '@typescript-eslint/prefer-optional-chain': 'off',
       },
     },
   ],

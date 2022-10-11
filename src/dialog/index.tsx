@@ -14,7 +14,7 @@ interface Props {
   confirmText?: string;
   cancelColorSchema?: colorSchema;
   confirmColorSchema?: colorSchema;
-  onClose: React.MouseEventHandler;
+  onClose?: React.MouseEventHandler & (() => void);
   closeOnOverlayClick?: boolean;
   onCancel?: React.MouseEventHandler;
   onConfirm?: React.MouseEventHandler;
@@ -38,12 +38,12 @@ const Dialog: React.FC<React.PropsWithChildren<Props>> = ({
 }) => {
   const container = useRef(null);
   const onClickClose: React.MouseEventHandler = (e) => {
-    onClose(e);
+    onClose && onClose(e);
   };
   const onClickOverlay: React.MouseEventHandler = (e) => {
     e.stopPropagation();
     if (container.current === e.target && closeOnOverlayClick) {
-      onClose(e);
+      onClose && onClose(e);
     }
   };
   const onClickCancel: React.MouseEventHandler = (e) => {
@@ -104,75 +104,55 @@ type AlertProps = Omit<
   'onClose' | 'visible' | 'showCancelBtn' | 'showConfirmBtn' | 'onCancel' | 'onConfirm' | 'closeOnOverlayClick'
 >;
 type ModalProps = Omit<Props, 'onClose' | 'visible'>;
-const showAlert = (content: string, options: AlertProps = {}) => {
+
+const modal = (
+  content: ReactNode | ReactFragment,
+  options: Omit<Props, 'visible'> & { yes?: () => void; no?: () => void }
+) => {
+  const { yes, no, ...rest } = options;
+  let onYes;
+  let onNo;
   const div = document.createElement('div');
-  document.body.append(div);
-  const node = (
-    <Dialog
-      visible={true}
-      showCancelBtn={false}
-      showConfirmBtn={false}
-      onClose={() => {
-        ReactDOM.render(React.cloneElement(node, { visible: false }), div);
-        ReactDOM.unmountComponentAtNode(div);
-        div.remove();
-      }}
-      {...options}
-    >
-      {content}
-    </Dialog>
-  );
-  ReactDOM.render(node, div);
-};
-const showConfirm = (content: string, options: ConfirmProps) => {
-  const emptyFunc = () => {};
-  const { yes = emptyFunc, no = emptyFunc, ...rest } = options;
-  const div = document.createElement('div');
-  const removeElement = () => {
-    ReactDOM.render(React.cloneElement(node, { visible: false }), div);
-    ReactDOM.unmountComponentAtNode(div);
-    div.remove();
-  };
-  const onYes = () => {
-    removeElement();
-    yes();
-  };
-  const onNo = () => {
-    removeElement();
-    no();
-  };
-  document.body.append(div);
-  const node = (
-    <Dialog
-      visible={true}
-      showCancelBtn={true}
-      showConfirmBtn={true}
-      closeOnOverlayClick={false}
-      onClose={onNo}
-      onCancel={onNo}
-      onConfirm={onYes}
-      {...rest}
-    >
-      {content}
-    </Dialog>
-  );
-  ReactDOM.render(node, div);
-};
-const showModal = (content: ReactNode | ReactFragment, options: ModalProps = {}) => {
-  const div = document.createElement('div');
-  document.body.append(div);
   const onClose = () => {
     ReactDOM.render(React.cloneElement(node, { visible: false }), div);
     ReactDOM.unmountComponentAtNode(div);
     div.remove();
   };
+  if (yes) {
+    onYes = () => {
+      onClose();
+      yes();
+    };
+    rest.onConfirm = onYes;
+  }
+  if (no) {
+    onNo = () => {
+      onClose();
+      no();
+    };
+    rest.onCancel = onNo;
+  }
   const node = (
-    <Dialog visible={true} onClose={onClose} {...options}>
+    <Dialog visible={true} onClose={no ? onNo : onClose} {...rest}>
       {content}
     </Dialog>
   );
   ReactDOM.render(node, div);
   return onClose;
+};
+const showAlert = (content: string, options: AlertProps = {}) => {
+  modal(content, { ...options, showCancelBtn: false, showConfirmBtn: false });
+};
+const showConfirm = (content: string, options: ConfirmProps) => {
+  modal(content, {
+    showCancelBtn: true,
+    showConfirmBtn: true,
+    closeOnOverlayClick: false,
+    ...options,
+  });
+};
+const showModal = (content: ReactNode | ReactFragment, options: ModalProps = {}) => {
+  return modal(content, { ...options, showCancelBtn: false, showConfirmBtn: false });
 };
 export default Dialog;
 export { showAlert, AlertProps, showConfirm, ConfirmProps, showModal };

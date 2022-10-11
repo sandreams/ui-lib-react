@@ -106,7 +106,7 @@ const DialogExample: React.FC = () => {
           点击弹出 Confirm
         </Button>
       </div>
-      <div className="example4" style={{ margin: '0 20px', zIndex: 8 }}>
+      <div className="example5" style={{ margin: '0 20px', zIndex: 8 }}>
         <h1>Example5:</h1>
         <Button type="fill" onClick={openModal}>
           点击弹出 Modal
