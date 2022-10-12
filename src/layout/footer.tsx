@@ -1,7 +1,8 @@
 import React from 'react';
+import sc from './scoped-class';
 
 const x: React.FC = () => {
-  return <footer>footer</footer>;
+  return <footer className={sc('footer')}>footer</footer>;
 };
 
 export default x;

@@ -9,7 +9,7 @@ const LayoutExample: React.FC = () => {
     <>
       <div>
         <h1>Example1</h1>
-        <Layout>
+        <Layout style={{ width: '1000px' }} classNames="aaa">
           <Header />
           <Content />
           <Footer />
