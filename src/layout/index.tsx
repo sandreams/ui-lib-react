@@ -1,6 +1,5 @@
 import React, { CSSProperties, PropsWithChildren } from 'react';
 import sc from './scoped-class';
-import classnames from '../helpers/classnames';
 import './layout.scss';
 
 interface Props {
@@ -10,7 +9,7 @@ interface Props {
 
 const x: React.FC<PropsWithChildren<Props>> = ({ style = {}, classNames = '', children, ...rest }) => {
   return (
-    <section style={style} className={classnames(sc(''), classNames)}>
+    <section style={style} className={sc('', classNames)}>
       {children}
     </section>
   );
