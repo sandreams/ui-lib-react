@@ -23,6 +23,7 @@ module.exports = {
       rules: {
         'no-undef': 'off',
         '@typescript-eslint/prefer-optional-chain': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
       },
     },
   ],

@@ -2,4 +2,23 @@
 
 .sand-ui-layout {
   border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    border: 1px solid red;
+  }
+  &__content {
+    border: 1px solid blue;
+    flex: 1;
+  }
+  &__footer {
+    border: 1px solid rgb(255, 0, 217);
+  }
+  &__aside {
+    border: 1px solid yellow;
+  }
+  & & {
+    flex: 1;
+    // flex-direction: row;
+  }
 }

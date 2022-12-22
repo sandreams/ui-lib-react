@@ -1,19 +1,16 @@
-import React, { CSSProperties, PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 import sc from './scoped-class';
 import './layout.scss';
 
-interface Props {
-  style?: CSSProperties;
-  classNames?: string;
-}
+interface Props extends React.HTMLAttributes<HTMLElement> {}
 
-const x: React.FC<PropsWithChildren<Props>> = ({ style = {}, classNames = '', children, ...rest }) => {
+const Layout: React.FC<PropsWithChildren<Props>> = ({ style = {}, className = '', children, ...rest }) => {
   return (
-    <section style={style} className={sc('', classNames)}>
+    <section style={style} className={sc('', className)}>
       {children}
     </section>
   );
 };
 
-x.defaultProps = {};
-export default x;
+Layout.defaultProps = {};
+export default Layout;

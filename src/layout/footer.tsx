@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { CSSProperties, PropsWithChildren } from 'react';
 import sc from './scoped-class';
 
-const x: React.FC = () => {
-  return <footer className={sc('footer')}>footer</footer>;
+interface Props extends React.HTMLAttributes<HTMLElement> {}
+
+const Footer: React.FC<PropsWithChildren<Props>> = ({ style = {}, className = '', children, ...rest }) => {
+  return (
+    <footer style={style} className={sc('footer', className)}>
+      footer
+    </footer>
+  );
 };
 
-export default x;
+export default Footer;

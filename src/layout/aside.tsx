@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { CSSProperties, PropsWithChildren } from 'react';
 import sc from './scoped-class';
-const x: React.FC = () => {
-  return <aside className={sc('aside')}>aside</aside>;
+
+interface Props extends React.HTMLAttributes<HTMLElement> {}
+
+const Aside: React.FC<PropsWithChildren<Props>> = ({ style = {}, className = '', children, ...rest }) => {
+  return (
+    <aside style={style} className={sc('aside', className)}>
+      aside
+    </aside>
+  );
 };
 
-export default x;
+export default Aside;
