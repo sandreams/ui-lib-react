@@ -19,6 +19,9 @@
   }
   & & {
     flex: 1;
-    // flex-direction: row;
+    flex-direction: row;
+  }
+  &.has-aside {
+    flex-direction: row;
   }
 }
